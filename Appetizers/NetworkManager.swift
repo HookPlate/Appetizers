@@ -26,8 +26,8 @@ final class NetworkManager {
         }
         //a data task to download the information
         let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, response, error in
-            //if error is nil fire off the failure case and pass .unableToComplete
-            guard let _ = error else {
+            //if error has a value fire off the failure case and pass .unableToComplete. originally he had guard let _ = error else. guard let is more like 'make sure it has a value else run the curly braces. Therefore it was running that every time it found error was nil. We use _ since we never use it.
+            if let _ = error {
                 completed(.failure(.unableToComplete))
                 //these returns are here because if any of these have nil we don't want to run the rest of the code.
                 return
