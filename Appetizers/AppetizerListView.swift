@@ -18,9 +18,17 @@ struct AppetizerListView: View {
             }
             .navigationTitle("🍟 Appetizers")
         }
+//        .overlay {
+//            ProgressView()
+//        }
         .onAppear{
             viewModel.getAppetizers()
         }
+        //the isPresented version of this modifier is for use with a bool, the item one is for when an item changes.
+        .alert(item: $viewModel.alertItem) { alertItem in
+            Alert(title: alertItem.title, message: alertItem.message, dismissButton: alertItem.dismissButton)
+        }
+        
     }
 }
 

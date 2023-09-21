@@ -10,17 +10,31 @@ import SwiftUI
 class AppetizerListViewModel: ObservableObject {
     
     @Published var appetizers: [Appetizer] = []
+    @Published var alertItem: AlertItem?
     
     func getAppetizers() {
         NetworkManager.shared.getAppetizers { result in
             //thanks to @escaping you're not on the main thread here and you need to be because changing appetizers triggers a UI redraw.
             //the above makes the network call, when it gets that back it does the below.
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { [self] in
                 switch result {
                 case .success(let appetizers):
                     self.appetizers = appetizers
                 case.failure(let error):
-                    print(error.localizedDescription)
+                    //show an alert depending on what error gets passed to our failurer case.
+                    switch error {
+                    case .invalidResponse:
+                        alertItem = AlertContext.invalidResponse
+                        
+                    case .invalidURL:
+                        alertItem = AlertContext.invalidURL
+                        
+                    case .invalidData:
+                        alertItem = AlertContext.invalidData
+                         
+                    case .unableToComplete:
+                        alertItem = AlertContext.unableToComplete
+                    }
                 }
             }
         }
