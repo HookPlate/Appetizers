@@ -11,12 +11,15 @@ class AppetizerListViewModel: ObservableObject {
     
     @Published var appetizers: [Appetizer] = []
     @Published var alertItem: AlertItem?
+    @Published var isLoading = false
     
     func getAppetizers() {
+        isLoading = true
         NetworkManager.shared.getAppetizers { result in
             //thanks to @escaping you're not on the main thread here and you need to be because changing appetizers triggers a UI redraw.
             //the above makes the network call, when it gets that back it does the below.
             DispatchQueue.main.async { [self] in
+                isLoading = false
                 switch result {
                 case .success(let appetizers):
                     self.appetizers = appetizers

@@ -12,23 +12,24 @@ struct AppetizerListView: View {
     @StateObject var viewModel = AppetizerListViewModel()
     
     var body: some View {
-        NavigationView {
-            List(viewModel.appetizers) { appetizer in
-                AppetizerListCell(appetizer: appetizer)
+        ZStack {
+            NavigationView {
+                List(viewModel.appetizers) { appetizer in
+                    AppetizerListCell(appetizer: appetizer)
+                }
+                .navigationTitle("🍟 Appetizers")
             }
-            .navigationTitle("🍟 Appetizers")
-        }
-//        .overlay {
-//            ProgressView()
-//        }
-        .onAppear{
-            viewModel.getAppetizers()
+            .onAppear{
+                viewModel.getAppetizers()
+            }
+            if viewModel.isLoading {
+                LoadingView()
+            }
         }
         //the isPresented version of this modifier is for use with a bool, the item one is for when an item changes.
         .alert(item: $viewModel.alertItem) { alertItem in
             Alert(title: alertItem.title, message: alertItem.message, dismissButton: alertItem.dismissButton)
         }
-        
     }
 }
 

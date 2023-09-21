@@ -20,6 +20,8 @@
 		543165B72ABB3FBA0069BF6A /* APError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543165B62ABB3FBA0069BF6A /* APError.swift */; };
 		543165BA2ABB842D0069BF6A /* AppetizerListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543165B92ABB842D0069BF6A /* AppetizerListViewModel.swift */; };
 		543165BC2ABC15120069BF6A /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543165BB2ABC15120069BF6A /* Alert.swift */; };
+		543165BE2ABC32B10069BF6A /* Color+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543165BD2ABC32B10069BF6A /* Color+Ext.swift */; };
+		543165C02ABC91970069BF6A /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543165BF2ABC91970069BF6A /* LoadingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		543165B82ABB536F0069BF6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		543165B92ABB842D0069BF6A /* AppetizerListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppetizerListViewModel.swift; sourceTree = "<group>"; };
 		543165BB2ABC15120069BF6A /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		543165BD2ABC32B10069BF6A /* Color+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Ext.swift"; sourceTree = "<group>"; };
+		543165BF2ABC91970069BF6A /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +88,8 @@
 				543165B62ABB3FBA0069BF6A /* APError.swift */,
 				543165B92ABB842D0069BF6A /* AppetizerListViewModel.swift */,
 				543165BB2ABC15120069BF6A /* Alert.swift */,
+				543165BD2ABC32B10069BF6A /* Color+Ext.swift */,
+				543165BF2ABC91970069BF6A /* LoadingView.swift */,
 			);
 			path = Appetizers;
 			sourceTree = "<group>";
@@ -171,11 +177,13 @@
 				543165912AB9C4DB0069BF6A /* AccountView.swift in Sources */,
 				543165BA2ABB842D0069BF6A /* AppetizerListViewModel.swift in Sources */,
 				543165992ABA010B0069BF6A /* AppetizerListCell.swift in Sources */,
+				543165BE2ABC32B10069BF6A /* Color+Ext.swift in Sources */,
 				543165832AB9C3FA0069BF6A /* AppetizerTabView.swift in Sources */,
 				543165B52ABB3D720069BF6A /* NetworkManager.swift in Sources */,
 				543165812AB9C3FA0069BF6A /* AppetizersApp.swift in Sources */,
 				543165BC2ABC15120069BF6A /* Alert.swift in Sources */,
 				5431658F2AB9C4C80069BF6A /* AppetizerListView.swift in Sources */,
+				543165C02ABC91970069BF6A /* LoadingView.swift in Sources */,
 				543165932AB9C4F00069BF6A /* OrderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
