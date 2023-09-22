@@ -5,16 +5,18 @@
 //  Created by robin tetley on 20/09/2023.
 //
 
-import Foundation
+import UIKit
 
 final class NetworkManager {
     //this is a singleton meaning we do NetworkManager.shared to access this
     static let shared = NetworkManager()
+    private let cache = NSCache<NSString, UIImage>()
     
     static let baseURL = "http://seanallen-course-backend.herokuapp.com/swiftui-fundamentals/"
     private let appetizerURL = baseURL + "appetizers"
     
     private init() {}
+    
     
     //once this has completed the Result will either have a succes case (Array pf Appetizers) or a failure case (Error)
     func getAppetizers(completed: @escaping (Result<[Appetizer], APError>) -> Void) {
@@ -56,6 +58,40 @@ final class NetworkManager {
                 completed(.failure(.invalidData))
             }
         }
+        task.resume()
+    }
+    
+    //used in the ImageLoader class in RemoteImage
+    func downloadImage(fromURLString urlString: String, completed: @escaping(UIImage?) -> Void) {
+        
+        let cacheKey = NSString(string: urlString)
+        //if we've got the image in the cache already, send it back and done.
+        if let image = cache.object(forKey: cacheKey) {
+            completed(image)
+            return
+        }
+        //if we checked the cache and get nil we continue on below.
+        //checking the url initialisation of the string which can retun nil itself
+        guard let url = URL(string: urlString) else {
+            //show the placeholder images
+            completed(nil)
+            return
+        }
+        
+        let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, response, error in
+            //check we have good data and also try to init an image from that data. When you init a UIImage from data that can also return nil, hence us unwrapping this.
+            guard let data = data, let image = UIImage(data: data) else {
+                completed(nil)
+                return
+            }
+            
+            //we now have our image, let's put it in the cache so we don't have to download it again.
+            self.cache.setObject(image, forKey: cacheKey)
+            //send the image back
+            completed(image)
+            
+        }
+        
         task.resume()
     }
     
