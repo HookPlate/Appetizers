@@ -27,6 +27,7 @@
 		54DDF81C2AC2F2B80051C5AA /* AppetizerDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DDF81B2AC2F2B80051C5AA /* AppetizerDetailView.swift */; };
 		54DDF81F2AC46FFB0051C5AA /* APButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DDF81E2AC46FFB0051C5AA /* APButton.swift */; };
 		54DDF8212AC4748F0051C5AA /* XDismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DDF8202AC4748F0051C5AA /* XDismissButton.swift */; };
+		54DDF8232AC48FF10051C5AA /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DDF8222AC48FF10051C5AA /* AccountViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		54DDF81B2AC2F2B80051C5AA /* AppetizerDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppetizerDetailView.swift; sourceTree = "<group>"; };
 		54DDF81E2AC46FFB0051C5AA /* APButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APButton.swift; sourceTree = "<group>"; };
 		54DDF8202AC4748F0051C5AA /* XDismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XDismissButton.swift; sourceTree = "<group>"; };
+		54DDF8222AC48FF10051C5AA /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 		54DDF80E2AC1B3B00051C5AA /* AccountView */ = {
 			isa = PBXGroup;
 			children = (
+				54DDF8222AC48FF10051C5AA /* AccountViewModel.swift */,
 				543165902AB9C4DB0069BF6A /* AccountView.swift */,
 			);
 			path = AccountView;
@@ -309,6 +312,7 @@
 				543165832AB9C3FA0069BF6A /* AppetizerTabView.swift in Sources */,
 				543165B52ABB3D720069BF6A /* NetworkManager.swift in Sources */,
 				543165812AB9C3FA0069BF6A /* AppetizersApp.swift in Sources */,
+				54DDF8232AC48FF10051C5AA /* AccountViewModel.swift in Sources */,
 				543165C22ABCA4570069BF6A /* RemoteImage.swift in Sources */,
 				54DDF8212AC4748F0051C5AA /* XDismissButton.swift in Sources */,
 				543165BC2ABC15120069BF6A /* Alert.swift in Sources */,
