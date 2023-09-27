@@ -10,8 +10,7 @@ import SwiftUI
 struct AppetizerListView: View {
     //being @state when the below fills it redraws the view.
     @StateObject var viewModel = AppetizerListViewModel()
-    @State private var isShowingDetail = false
-    @State private var selectedAppetizer: Appetizer?
+
     
     var body: some View {
         ZStack {
@@ -19,8 +18,8 @@ struct AppetizerListView: View {
                 List(viewModel.appetizers) { appetizer in
                     AppetizerListCell(appetizer: appetizer)
                         .onTapGesture {
-                            isShowingDetail = true
-                            selectedAppetizer = appetizer
+                            viewModel.isShowingDetail = true
+                            viewModel.selectedAppetizer = appetizer
                         }
                 }
                 .navigationTitle("🍟 Appetizers")
@@ -28,11 +27,11 @@ struct AppetizerListView: View {
             .onAppear{
                 viewModel.getAppetizers()
             }
-            .blur(radius: isShowingDetail ? 20 : 0)
-            .disabled(isShowingDetail)
+            .blur(radius: viewModel.isShowingDetail ? 20 : 0)
+            .disabled(viewModel.isShowingDetail)
             
-            if isShowingDetail {
-                AppetizerDetailView(appetizer: selectedAppetizer!, isShowingDetail: $isShowingDetail)
+            if viewModel.isShowingDetail {
+                AppetizerDetailView(appetizer: viewModel.selectedAppetizer!, isShowingDetail: $viewModel.isShowingDetail)
             }
             
             if viewModel.isLoading {
