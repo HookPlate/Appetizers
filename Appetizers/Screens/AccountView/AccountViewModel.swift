@@ -9,23 +9,18 @@ import SwiftUI
 
 final class AccountViewModel: ObservableObject {
     
-    @Published var firstName = ""
-    @Published var lastName = ""
-    @Published var email = ""
-    @Published var birthDate = Date()
-    @Published var extraNapkins = false
-    @Published var frequentRefills = false
+    @Published var user = User()
     
     @Published var alertItem: AlertItem?
     
     var isValidForm: Bool {
         //we perform all these checks, if any of them fail we return false, if they pass we return true.
-        guard !firstName.isEmpty && !lastName.isEmpty && !email.isEmpty else {
+        guard !user.firstName.isEmpty && !user.lastName.isEmpty && !user.email.isEmpty else {
             alertItem = AlertContext.invalidForm
             return false
         }
         
-        guard email.isValidEmail else {
+        guard user.email.isValidEmail else {
             alertItem = AlertContext.invalidEmail
             return false
         }
