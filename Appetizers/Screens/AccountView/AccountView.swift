@@ -20,15 +20,15 @@ struct AccountView: View {
                     TextField("Email", text: $viewModel.email)
                         .keyboardType(.emailAddress)
                         .autocapitalization(.none)
-                        .disableAutocorrection(true)
                     DatePicker("Birthday", selection: $viewModel.birthDate, displayedComponents: .date)
                     
                     Button {
-                        print("save")
+                        viewModel.saveFormChanges()
                     } label: {
                         Text("Save Changes")
                     }
                 }
+                .disableAutocorrection(true)
                 
                 Section(header: Text("Requests")) {
                     Toggle("Extra Napkins", isOn: $viewModel.extraNapkins)
@@ -37,6 +37,9 @@ struct AccountView: View {
                 .toggleStyle(SwitchToggleStyle(tint: .brandPrimary))
             }
             .navigationTitle("🤣Account")
+        }
+        .alert(item: $viewModel.alertItem) { alertItem in
+            Alert(title: alertItem.title, message: alertItem.message, dismissButton: alertItem.dismissButton)
         }
     }
 }

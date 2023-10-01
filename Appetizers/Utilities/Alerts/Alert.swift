@@ -31,3 +31,20 @@ struct AlertContext {
                                             dismissButton: .default(Text("Ok")))
 }
 
+struct AlertFormContext {
+    static let emptyField   = AlertItem(title: Text("Empty Field"),
+                                            message: Text("You need to fill all fields"),
+                                            dismissButton: .default(Text("Ok")))
+    static let isValidEmal  = AlertItem(title: Text("Invalid Email"),
+                                            message: Text("That's not a real email"),
+                                            dismissButton: .default(Text("Ok")))
+    
+//    static let invalidURL       = AlertItem(title: Text("Server Error"),
+//                                            message: Text("The url received from the server was invalid, please contact support."),
+//                                            dismissButton: .default(Text("Ok")))
+//    
+//    static let unableToComplete = AlertItem(title: Text("Server Error"),
+//                                            message: Text("Unable to complete your request at this time, please check your internet connection."),
+//                                            dismissButton: .default(Text("Ok")))
+}
+
