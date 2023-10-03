@@ -10,14 +10,32 @@ import SwiftUI
 struct AccountView: View {
     
     @StateObject var viewModel = AccountViewModel()
+    //needs to be an optional since nothing is focused in the beginning and so we can dismiss it.
+    @FocusState private var focusTextField: FormtextField?
+    
+    enum FormtextField {
+        case firstName, lastName, email
+    }
     
     var body: some View {
         NavigationView {
             Form {
                 Section(header: Text("Personal Info")) {
                     TextField("First Name", text: $viewModel.user.firstName)
+                        .focused($focusTextField, equals: .firstName)
+                        .onSubmit { focusTextField = .lastName }
+                        .submitLabel(.next)
+                    
                     TextField("Last Name", text: $viewModel.user.lastName)
+                        .focused($focusTextField, equals: .lastName)
+                        .onSubmit { focusTextField = .email }
+                        .submitLabel(.next)
+                    
                     TextField("Email", text: $viewModel.user.email)
+                        .focused($focusTextField, equals: .email)
+                    //so the keyboard dissmisses since that's the last textfield
+                        .onSubmit { focusTextField = nil }
+                        .submitLabel(.continue)
                         .keyboardType(.emailAddress)
                         .autocapitalization(.none)
                         .disableAutocorrection(true)
@@ -37,6 +55,11 @@ struct AccountView: View {
                 .toggleStyle(SwitchToggleStyle(tint: .brandPrimary))
             }
             .navigationTitle("🤣Account")
+            .toolbar {
+                ToolbarItemGroup(placement: .keyboard) {
+                    Button("Dismiss") { focusTextField = nil }
+                }
+            }
         }
         .onAppear {
             viewModel.retreiveUser()

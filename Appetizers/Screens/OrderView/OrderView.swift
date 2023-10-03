@@ -23,13 +23,14 @@ struct OrderView: View {
                         .onDelete(perform: order.deleteItems)
                            
                     }
-                    .listStyle(PlainListStyle())
+                    .listStyle(.plain)
                     
                     Button {
                         print("Order placed")
                     } label: {
-                        APButton(title: "$\(order.totalPrice, specifier: "%.2f") - Place Order")
+                        Text("$\(order.totalPrice, specifier: "%.2f") - Place Order")
                     }
+                    .modifier(StandardButtonStyle())
                     .padding(.bottom, 30)
                 }
                 //like in AppetizerListView we smack our empty state on top of everything if that array is empty.
