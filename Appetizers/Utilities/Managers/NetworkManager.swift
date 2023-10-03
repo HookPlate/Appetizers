@@ -18,7 +18,7 @@ final class NetworkManager {
     private init() {}
     
     
-    //much cleaner handling errors this way.
+    //much cleaner handling errors this way..
     func getAppetizers() async throws -> [Appetizer] {
         //just unwraping our URL to make sure we have a good one.
         guard let url = URL(string: appetizerURL) else {
