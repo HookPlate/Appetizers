@@ -9,27 +9,33 @@ import SwiftUI
 
 struct OrderView: View {
     
-    @State private var orderItems = MockData.orderItems
+   // this just used for building the ui and structure @State private var orderItems = MockData.orderItems
+    @EnvironmentObject var order: Order
     
     var body: some View {
         NavigationView {
-            VStack {
-                List {
-                    ForEach(orderItems) { appetizer in
-                        AppetizerListCell(appetizer: appetizer)
+            ZStack {
+                VStack {
+                    List {
+                        ForEach(order.items) { appetizer in
+                            AppetizerListCell(appetizer: appetizer)
+                        }
+                        .onDelete(perform: order.deleteItems)
+                           
                     }
-                    .onDelete { indexSet in
-                        orderItems.remove(atOffsets: indexSet)
+                    .listStyle(PlainListStyle())
+                    
+                    Button {
+                        print("Order placed")
+                    } label: {
+                        APButton(title: "$\(order.totalPrice, specifier: "%.2f") - Place Order")
                     }
+                    .padding(.bottom, 30)
                 }
-                .listStyle(PlainListStyle())
-                
-                Button {
-                    print("Order placed")
-                } label: {
-                    APButton(title: "$99.99 Place Order ")
+                //like in AppetizerListView we smack our empty state on top of everything if that array is empty.
+                if order.items.isEmpty {
+                    EmptyState(imageName: "empty-order", message: "You have no items in your order. \nPlease add an appetizer.")
                 }
-                .padding(.bottom, 30)
             }
             .navigationTitle("🧾Orders")
         }

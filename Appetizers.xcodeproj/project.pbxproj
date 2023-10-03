@@ -25,11 +25,13 @@
 		543165C22ABCA4570069BF6A /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543165C12ABCA4570069BF6A /* RemoteImage.swift */; };
 		54CC68702AC5501C009096B3 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54CC686F2AC5501C009096B3 /* String+Ext.swift */; };
 		54CC68742AC95E0A009096B3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54CC68732AC95E0A009096B3 /* User.swift */; };
+		54D7C4B02ACC101300438CC1 /* EmptyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D7C4AF2ACC101300438CC1 /* EmptyState.swift */; };
 		54DDF81A2AC1B7810051C5AA /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DDF8192AC1B7810051C5AA /* DetailView.swift */; };
 		54DDF81C2AC2F2B80051C5AA /* AppetizerDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DDF81B2AC2F2B80051C5AA /* AppetizerDetailView.swift */; };
 		54DDF81F2AC46FFB0051C5AA /* APButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DDF81E2AC46FFB0051C5AA /* APButton.swift */; };
 		54DDF8212AC4748F0051C5AA /* XDismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DDF8202AC4748F0051C5AA /* XDismissButton.swift */; };
 		54DDF8232AC48FF10051C5AA /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DDF8222AC48FF10051C5AA /* AccountViewModel.swift */; };
+		54F5BC892ACC250800837670 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F5BC882ACC250800837670 /* Order.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,11 +55,13 @@
 		543165C12ABCA4570069BF6A /* RemoteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImage.swift; sourceTree = "<group>"; };
 		54CC686F2AC5501C009096B3 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		54CC68732AC95E0A009096B3 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		54D7C4AF2ACC101300438CC1 /* EmptyState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyState.swift; sourceTree = "<group>"; };
 		54DDF8192AC1B7810051C5AA /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		54DDF81B2AC2F2B80051C5AA /* AppetizerDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppetizerDetailView.swift; sourceTree = "<group>"; };
 		54DDF81E2AC46FFB0051C5AA /* APButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APButton.swift; sourceTree = "<group>"; };
 		54DDF8202AC4748F0051C5AA /* XDismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XDismissButton.swift; sourceTree = "<group>"; };
 		54DDF8222AC48FF10051C5AA /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
+		54F5BC882ACC250800837670 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +113,14 @@
 				543165872AB9C3FB0069BF6A /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		54D7C4AE2ACC0FED00438CC1 /* Empty States */ = {
+			isa = PBXGroup;
+			children = (
+				54D7C4AF2ACC101300438CC1 /* EmptyState.swift */,
+			);
+			path = "Empty States";
 			sourceTree = "<group>";
 		};
 		54DDF80C2AC1B3850051C5AA /* Screens */ = {
@@ -181,6 +193,7 @@
 			children = (
 				543165942AB9F59B0069BF6A /* Appetizer.swift */,
 				54CC68732AC95E0A009096B3 /* User.swift */,
+				54F5BC882ACC250800837670 /* Order.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -188,6 +201,7 @@
 		54DDF8142AC1B5100051C5AA /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				54D7C4AE2ACC0FED00438CC1 /* Empty States */,
 				54DDF81D2AC46FE80051C5AA /* Buttons */,
 				54DDF8172AC1B52A0051C5AA /* UIKit Components */,
 				54DDF8162AC1B5230051C5AA /* Cells */,
@@ -328,7 +342,9 @@
 				54DDF81A2AC1B7810051C5AA /* DetailView.swift in Sources */,
 				54CC68702AC5501C009096B3 /* String+Ext.swift in Sources */,
 				543165932AB9C4F00069BF6A /* OrderView.swift in Sources */,
+				54F5BC892ACC250800837670 /* Order.swift in Sources */,
 				54CC68742AC95E0A009096B3 /* User.swift in Sources */,
+				54D7C4B02ACC101300438CC1 /* EmptyState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
