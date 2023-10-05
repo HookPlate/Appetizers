@@ -4,7 +4,7 @@
 //
 //  Created by robin tetley on 21/09/2023.
 //
-
+//this all goes away thanks to remote image
 import SwiftUI
 
 final class ImageLoader: ObservableObject {
@@ -14,7 +14,7 @@ final class ImageLoader: ObservableObject {
     func load(fromUrlString urlString: String) {
         NetworkManager.shared.downloadImage(fromURLString: urlString) { uiImage in
             //don't need to return anything in completed since we're not handling the errors we're just showing the placeholders if things go wrong.
-            guard let uiImage = uiImage else { return }
+            guard let uiImage else { return }
             //make an Image from the UIImage, becayse this triggers a UI change we want to trigger this on the main queue. You could create a code snippet called dqueue to make it faster.
             DispatchQueue.main.async {
                 self.image = Image(uiImage: uiImage)

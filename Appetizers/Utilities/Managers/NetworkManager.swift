@@ -37,7 +37,7 @@ final class NetworkManager {
             throw APError.invalidData
         }
     }
-    //used in the ImageLoader class in RemoteImage
+    //used in the ImageLoader class in RemoteImage - this is not necessary if using AsyncImage but that doesn't handle image caching like this does.
     func downloadImage(fromURLString urlString: String, completed: @escaping(UIImage?) -> Void) {
         
         let cacheKey = NSString(string: urlString)
@@ -56,7 +56,7 @@ final class NetworkManager {
         
         let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, response, error in
             //check we have good data and also try to init an image from that data. When you init a UIImage from data that can also return nil, hence us unwrapping this.
-            guard let data = data, let image = UIImage(data: data) else {
+            guard let data, let image = UIImage(data: data) else {
                 completed(nil)
                 return
             }

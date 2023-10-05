@@ -32,7 +32,7 @@ final class AccountViewModel: ObservableObject {
     //gets called onAppear in AccountView
     func retreiveUser() {
         //jump out of here if the userData is empty.
-        guard let userData = userData else { return }
+        guard let userData else { return }
         
         do {
             user = try JSONDecoder().decode(User.self, from: userData)
